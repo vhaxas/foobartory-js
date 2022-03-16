@@ -1,0 +1,34 @@
+{
+  "name": "@foobartory-dependency/shared",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "lint": "eslint -c .eslintrc.js -f pretty src",
+    "format": "run-s format:prettier format:eslint",
+    "format:eslint": "run-s \"lint --fix\"",
+    "format:prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\"",
+    "clean": "run-s -n clean:run clean:post",
+    "clean:run": "run-p -n clean:run:*",
+    "clean:run:dist": "rimraf dist",
+    "clean:run:turbo": "rimraf .turbo",
+    "clean:run:cucumber": "rimraf .cucumber",
+    "clean:post": "run-s -n clean:post:node_modules",
+    "clean:post:node_modules": "rm -rf node_modules"
+  },
+  "dependencies": {
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@foobartory-dev-dependency/eslint": "*",
+    "@foobartory-dev-dependency/tsconfig": "*",
+    "@foobartory-dev-dependency/devtools": "*",
+    "typescript": "^4.5.5"
+  }
+}

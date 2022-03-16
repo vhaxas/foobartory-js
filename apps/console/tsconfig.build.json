@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "baseUrl": "../..",
+    "paths": {
+      "^shared/*": ["node_modules/@foobartory-dependency/shared/dist/*"],
+      "^module/factory/*": ["node_modules/@foobartory-dependency/module-factory/dist/*"],
+    }
+  }
+}

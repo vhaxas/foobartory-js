@@ -1,0 +1,661 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Factory Back</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f66f57ab-e1c1-4a05-8edd-fc7ca3084c8e" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1582571352032-448f7928eca3?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🤖</span></div><h1 class="page-title">Factory Back</h1></header><div class="page-body"><h1 id="5ca271f3-d9e2-4334-abf2-3afacf47406e" class="">Factory</h1><h2 id="59f7a9b4-47bd-406f-af30-35fcffd0a960" class="">Avant-propos</h2><ul id="0a36b4b3-b070-414c-9278-5486847cc7f7" class="bulleted-list"><li style="list-style-type:disc">Utilise le langage de ton choix</li></ul><ul id="9a6016da-f52d-4dba-acad-caefb591c820" class="bulleted-list"><li style="list-style-type:disc">Un output console est suffisant</li></ul><ul id="e9357699-bc6d-4c11-8c60-9ebb12926e32" class="bulleted-list"><li style="list-style-type:disc">Envoies ta réponse sous la forme d&#x27;un repo Github que nous pouvons <code>git clone</code> avec un readme expliquant comment le faire fonctionner et tes remarques sur ton travail. Le repo contiendra l&#x27;énoncé également.</li></ul><ul id="0342ec7d-c0bc-40c8-be0e-cb988fe393c2" class="bulleted-list"><li style="list-style-type:disc">Nous cherchons à comprendre comment tu codes et comment tu appréhendes une question ouverte.</li></ul><ul id="76cb6717-ce38-4b36-a2f0-55d98847dbf2" class="bulleted-list"><li style="list-style-type:disc">N&#x27;hésite pas à nous contacter matthieu@getalma.eu si tu as des questions.</li></ul><ul id="43197917-5684-4ff2-a27e-3daa83d58d9f" class="bulleted-list"><li style="list-style-type:disc">Le projet est pensé pour durer environ 3 heures. Nous sommes conscients que tu as d&#x27;autres obligations, et nous ne te demandons donc pas la &quot;réponse parfaite&quot;.</li></ul><h2 id="1ffebbb4-6938-4ea5-8d92-5a9bbb693942" class="">Enoncé</h2><p id="92d07f70-4212-4131-91c1-689dabb9fa27" class="">Le but est de coder une chaîne de production automatique de <code>foobar</code>.</p><p id="874fd6ac-5236-4015-b791-e195e9062bdf" class="">
+On dispose au départ de 2 robots, mais on souhaite accélérer la production pour prendre le contrôle du marché des <code>foobar</code>. Pour ce faire on va devoir acheter davantage de robots, le programme s&#x27;arrête quand on a 30 robots.</p><p id="9f6db935-c20c-4e7e-a844-5821918e9a4d" class="">
+</p><p id="fa5a6b05-28fa-4f33-acb1-fddc0cc144c4" class="">Les robots sont chacun capables d&#x27;effectuer les activités suivantes :</p><ul id="91a8b005-b2f7-4b60-9ed3-6c6ed01bdfe1" class="bulleted-list"><li style="list-style-type:disc">Miner du <code>foo</code> : occupe le robot pendant 1 seconde.</li></ul><ul id="b32401d6-b209-49b7-b194-ee6236344d89" class="bulleted-list"><li style="list-style-type:disc">Miner du <code>bar</code> : occupe le robot pendant un temps aléatoire compris entre 0.5 et 2 secondes.</li></ul><ul id="1058ec9f-b26b-4603-8b5d-cc2f5fd86e8b" class="bulleted-list"><li style="list-style-type:disc">Assembler un <code>foobar</code> à partir d&#x27;un <code>foo</code> et d&#x27;un <code>bar</code> : occupe le robot pendant 2 secondes. L&#x27;opération a 60% de chances de succès ; en cas d&#x27;échec le <code>bar</code> peut être réutilisé, le <code>foo</code> est perdu.</li></ul><ul id="388875eb-e8b2-40b8-a7c6-a0c0ebc60dfa" class="bulleted-list"><li style="list-style-type:disc">Vendre des <code>foobar</code> : 10s pour vendre de 1 à 5 foobar, on gagne 1€ par foobar vendu</li></ul><ul id="bfc6faef-6206-471c-ba42-c5b93de2f12b" class="bulleted-list"><li style="list-style-type:disc">Acheter un nouveau robot pour 3€ et 6 <code>foo</code>, 0s</li></ul><p id="958b4e04-7208-4cad-ab85-42fdad9f1d14" class="">
+</p><p id="1d272e36-d8a3-4857-b548-53e1467d47af" class="">A chaque changement de type d&#x27;activité, le robot doit se déplacer à un nouveau poste de travail, cela l&#x27;occupe pendant 5s.</p><p id="2e1f0048-37de-4364-b36c-fdd7000c1c17" class="">
+</p><p id="951c9fb4-3899-41be-a57e-466c6657f094" class="">Notes:</p><ul id="6b2d9406-5c4e-4fd1-8ae1-5029481becb9" class="bulleted-list"><li style="list-style-type:disc">1 seconde du jeu n&#x27;a pas besoin d&#x27;être une seconde réelle.</li></ul><ul id="3c87416e-39e2-43b9-b569-10e91ed0e1f2" class="bulleted-list"><li style="list-style-type:disc">Le choix des activités n&#x27;a <em>pas besoin d&#x27;être optimal</em> (pas besoin de faire des maths), seulement fonctionnel</li></ul><hr id="8b404a81-cb8f-4c5a-bd0c-4ad039f73e96"/><hr id="d5341a92-7194-4a9b-a2e7-a115fd1657e6"/><hr id="2d4df718-4e2d-4508-857c-f94867b2416c"/><h2 id="f7e21088-b378-44a5-9812-051882e3a33f" class=""><strong>Foreword</strong></h2><ul id="ba315b45-5dba-4d6c-b907-4fdaba78a5ea" class="bulleted-list"><li style="list-style-type:disc">Use the language of your choice</li></ul><ul id="89cf0974-df46-46e1-8c22-448ac751c5e1" class="bulleted-list"><li style="list-style-type:disc">A console output is enough</li></ul><ul id="6739a416-2bd9-443f-8bba-098326479c27" class="bulleted-list"><li style="list-style-type:disc">Send your answer as a Github repo that we can <code>git clone</code> with a README explaining how to make it work</li></ul><ul id="121831ea-1bae-468e-b841-d33da29ed695" class="bulleted-list"><li style="list-style-type:disc">The goal of this project is to understand how you code and how you handle an open question.</li></ul><ul id="5bfd6aac-6844-431b-b1bd-ccc2c661c630" class="bulleted-list"><li style="list-style-type:disc">The project is designed to last about 3 hours. We are aware that you have other obligations, so we do not ask you for the optimal answer.</li></ul><ul id="1b48a91c-5590-477a-8f0b-8d81b45cb937" class="bulleted-list"><li style="list-style-type:disc">Do not hesitate to contact us if you have any questions.</li></ul><h2 id="a82d8404-7569-4e05-b9a0-dc55c7372e25" class=""><strong>Statement</strong></h2><p id="2171334a-69a9-4df4-b43b-b935114306bf" class="">The goal is to code an automatic production line of <code>foobar</code>.</p><p id="6230c854-514f-4d03-9965-a58fc7f50ac2" class="">At the beginning, we have 2 robots, each of which is able to perform several actions:</p><ul id="8a05020b-bb88-4f4c-a9a6-f8028940c240" class="bulleted-list"><li style="list-style-type:disc">Moving to change activity: occupy the robot for 5 seconds.</li></ul><ul id="685f1b53-d1a4-43a5-adeb-4c44eaab3f6d" class="bulleted-list"><li style="list-style-type:disc">Mining <code>foo</code>: occupies the robot for 1 second.</li></ul><ul id="dfe9defb-69bb-4621-8aa6-a0f85d0e50e7" class="bulleted-list"><li style="list-style-type:disc">Mining <code>bar</code>: keeps the robot busy for a random time between 0.5 and 2 seconds.</li></ul><ul id="d6b1a625-7a5e-4c62-b3c3-3397ce52c560" class="bulleted-list"><li style="list-style-type:disc">Assembling a <code>foobar</code> from a <code>foo</code> and a <code>bar</code>: keeps the robot busy for 2 seconds. The operation has a 60% chance of success; in case of failure the <code>bar</code> can be reused, the <code>foo</code> is lost.</li></ul><p id="0ad58d28-048b-41a8-b387-3c96b5985bb1" class="">You have large warehouses, stock management is not a problem. On the other hand, the legislation imposes the traceability of the parts used to manufacture the <code>foobars</code>: each <code>foo</code> and each <code>bar</code> must have a unique serial number that must be found on the <code>foobar</code> when it leaves the factory.</p><p id="7e6cb649-641b-4657-88f9-710bb99bf95f" class="">We then want to speed up production to quickly take control of the <code>foobar</code> market. The robots can perform new actions:</p><ul id="8ea66102-56cb-4ce3-bab3-5fd0124691a7" class="bulleted-list"><li style="list-style-type:disc">Sell <code>foobar</code>: 10s to sell from 1 to 5 foobar, we earn €1 per foobar sold</li></ul><ul id="d0e4e2a5-32c1-48f8-b00c-787ee327fd77" class="bulleted-list"><li style="list-style-type:disc">Buy a new robot for €3 and 6 <code>foo</code>, 0s</li></ul><p id="307aa3a3-dbd7-4de2-b0d6-c48e83b9285c" class="">The game stops when you reach 30 robots.</p><h3 id="82c5e23b-db4b-46fd-bf47-7fd76e784d32" class=""><strong>Latest notes</strong></h3><ol type="1" id="2f920a0a-b075-423a-a7bd-f8e7134c684d" class="numbered-list" start="1"><li>A second in the game does not have to be a real second.</li></ol><ol type="1" id="77a4b1d1-4572-4e9e-b67d-9d8d25afbb2d" class="numbered-list" start="2"><li>The choice of actions does not have to be optimal, only functional.</li></ol><ol type="1" id="712047d2-f584-4eae-98f9-afd8f65bd51a" class="numbered-list" start="3"><li>No need to do complex maths to solve the problem. </li></ol></div></article></body></html>

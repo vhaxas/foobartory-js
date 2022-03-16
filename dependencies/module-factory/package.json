@@ -1,0 +1,47 @@
+{
+  "name": "@foobartory-dependency/module-factory",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "test": "run-s -n test:acceptance test:unit",
+    "test:unit": "run-s -n test:unit:run",
+    "test:unit:run": "ava --config ava.unit.config.js",
+    "test:acceptance": "run-s -cn test:acceptance:run test:acceptance:report",
+    "test:acceptance:run": "run-s -n test:acceptance:run:pre test:acceptance:run:exec",
+    "test:acceptance:run:pre": "mkdir -p .cucumber",
+    "test:acceptance:run:exec": "cucumber-js -p default",
+    "test:acceptance:report": "generate-cucumber-report",
+    "tdd": "run-s -n \"test:unit:run --watch\"",
+    "coverage": "c8 run-s test:unit:run",
+    "lint": "eslint -c .eslintrc.js -f pretty src",
+    "format": "run-s format:prettier format:eslint",
+    "format:eslint": "run-s \"lint --fix\"",
+    "format:prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\"",
+    "clean": "run-s -n clean:run clean:post",
+    "clean:run": "run-p -n clean:run:*",
+    "clean:run:dist": "rimraf dist",
+    "clean:run:turbo": "rimraf .turbo",
+    "clean:run:cucumber": "rimraf .cucumber",
+    "clean:run:coverage": "rimraf coverage",
+    "clean:post": "run-s -n clean:post:node_modules",
+    "clean:post:node_modules": "rm -rf node_modules"
+  },
+  "dependencies": {
+    "@foobartory-dependency/shared": "*"
+  },
+  "devDependencies": {
+    "@foobartory-dev-dependency/ava": "*",
+    "@foobartory-dev-dependency/eslint": "*",
+    "@foobartory-dev-dependency/cucumber": "*",
+    "@foobartory-dev-dependency/devtools": "*",
+    "@foobartory-dev-dependency/tsconfig": "*",
+    "typescript": "^4.5.5"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "all": true,
+  "src": ".",
+  "allowExternal": true,
+  "exclude": [
+    "apps",
+    "**/build",
+    "**/cucumber.js",
+    "**/*rc.js",
+    "**/*.config.js",
+    "**/*.d.ts",
+    "**/coverage",
+    "**/ava.unit.config.js",
+    "**/test/unit/**/*.test.ts",
+    "**/test/acceptance/**/*.steps.ts",
+    "**/devDependencies",
+    "**/*.interface.ts"
+  ],
+  "reporter": ["text", "html", "lcov", "json"]
+}

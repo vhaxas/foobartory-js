@@ -1,0 +1,11 @@
+{
+  "name": "@foobartory-dev-dependency/prettier-config",
+  "version": "0.0.0",
+  "license": "MIT",
+  "files": [
+    "prettier.base.config.js"
+  ],
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0"
+  }
+}

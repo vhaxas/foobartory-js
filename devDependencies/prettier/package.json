@@ -1,0 +1,16 @@
+{
+  "name": "@foobartory-dev-dependency/prettier",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "clean": "run-s -n clean:run clean:post",
+    "clean:run": "run-p -n clean:run:*",
+    "clean:run:turbo": "rimraf .turbo",
+    "clean:post": "run-s -n clean:post:node_modules",
+    "clean:post:node_modules": "rm -rf node_modules"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1"
+  }
+}

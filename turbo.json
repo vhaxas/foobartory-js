@@ -1,0 +1,35 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "build:docker": {
+      "cache": false
+    },
+    "test": {
+      "outputs": [".cucumber/**"]
+    },
+    "test:unit": {
+      "outputs": []
+    },
+    "test:acceptance": {
+      "outputs": [".cucumber/**"]
+    },
+    "lint": {
+      "cache": false
+    },
+    "format": {
+      "cache": false
+    },
+    "clean": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "start": {
+      "cache": false
+    }
+  }
+}

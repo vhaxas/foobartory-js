@@ -1,0 +1,41 @@
+{
+  "name": "@foobartory-js/root",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "dependencies/*",
+    "devDependencies/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "build:docker": "turbo run build:docker",
+    "dev": "turbo run dev --parallel",
+    "start": "turbo run start --parallel",
+    "test": "turbo run test --parallel",
+    "test:unit": "turbo run test:unit --parallel",
+    "test:acceptance": "turbo run test:acceptance --parallel",
+    "coverage": "c8 run-s -n \"test:unit --force\"",
+    "lint": "turbo run lint --parallel",
+    "format": "turbo run format --parallel",
+    "clean": "run-s -n clean:run clean:post",
+    "clean:run": "run-p -n clean:run:*",
+    "clean:run:turbo": "turbo run clean --parallel",
+    "clean:run:coverage": "rimraf coverage",
+    "clean:post": "run-s -n clean:post:node_modules",
+    "clean:post:node_modules": "rm -rf node_modules",
+    "cleanall": "run-s -n clean clean:yarn:lockfile",
+    "clean:yarn:lockfile": "rm yarn.lock"
+  },
+  "devDependencies": {
+    "c8": "^7.11.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "yarn@1.22.17"
+}

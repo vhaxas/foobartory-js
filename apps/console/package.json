@@ -1,0 +1,42 @@
+{
+  "name": "@foobartory-app/console",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "main": "dist/index",
+  "types": "dist/index",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json",
+    "build:docker": "cd ../.. && docker build . -f infrastructure/docker/Dockerfile -t foobartory-console:latest --build-arg SCOPE=@foobartory-app/cli",
+    "dev": "nodemon src/index.ts",
+    "start": "cross-env TS_NODE_PROJECT=./tsconfig.run.json node -r tsconfig-paths/register dist/index.js",
+    "lint": "eslint -c .eslintrc.js -f pretty src",
+    "format": "run-s format:prettier format:eslint",
+    "format:eslint": "run-s \"lint --fix\"",
+    "format:prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,md}\"",
+    "clean": "run-s -n clean:run clean:post",
+    "clean:run": "run-p -n clean:run:*",
+    "clean:run:dist": "rimraf dist",
+    "clean:run:turbo": "rimraf .turbo",
+    "clean:post": "run-s -n clean:post:node_modules",
+    "clean:post:node_modules": "rm -rf node_modules"
+  },
+  "dependencies": {
+    "@foobartory-dependency/module-factory": "*",
+    "@foobartory-dependency/shared": "*",
+    "cross-env": "^7.0.3",
+    "rsdi": "^2.1.1",
+    "tsconfig-paths": "^3.14.0"
+  },
+  "devDependencies": {
+    "@foobartory-dev-dependency/devtools": "*",
+    "@foobartory-dev-dependency/eslint": "*",
+    "@foobartory-dev-dependency/tsconfig": "*",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  }
+}
