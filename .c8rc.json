@@ -4,7 +4,7 @@
   "allowExternal": true,
   "exclude": [
     "apps",
-    "**/build",
+    "**/dist",
     "**/cucumber.js",
     "**/*rc.js",
     "**/*.config.js",

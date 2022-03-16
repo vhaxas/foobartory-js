@@ -5,6 +5,7 @@
   "exclude": [
     "*.config.js",
     "*.d.ts",
+    "**/dist",
     "**/ava.unit.config.js",
     "**/test/unit/**/*.test.ts",
     "**/*.interface.ts"
