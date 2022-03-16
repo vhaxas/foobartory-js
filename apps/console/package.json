@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
-    "build:docker": "cd ../.. && docker build . -f infrastructure/docker/Dockerfile -t foobartory-console:latest --build-arg SCOPE=@foobartory-app/cli",
+    "build:docker": "cd ../.. && docker build . -f infrastructure/docker/Dockerfile -t foobartory-console:latest --build-arg SCOPE=@foobartory-app/console",
     "dev": "nodemon src/index.ts",
     "start": "cross-env TS_NODE_PROJECT=./tsconfig.run.json node -r tsconfig-paths/register dist/index.js",
     "lint": "eslint -c .eslintrc.js -f pretty src",
