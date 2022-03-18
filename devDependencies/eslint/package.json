@@ -11,7 +11,7 @@
     "clean:post:node_modules": "rm -rf node_modules"
   },
   "devDependencies": {
-    "@foobartory-dev-dependency/eslint-config": "*",
+    "@foobartory-dev-dependency/devtools": "*",
     "eslint": "7.32.0",
     "eslint-formatter-pretty": "^4.1.0"
   }

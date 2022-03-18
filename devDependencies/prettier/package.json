@@ -11,6 +11,7 @@
     "clean:post:node_modules": "rm -rf node_modules"
   },
   "devDependencies": {
+    "@foobartory-dev-dependency/devtools": "*",
     "prettier": "^2.5.1"
   }
 }

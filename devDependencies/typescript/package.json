@@ -1,11 +1,7 @@
 {
-  "name": "@foobartory-dev-dependency/ava",
+  "name": "@foobartory-dev-dependency/typescript",
   "version": "0.0.0",
-  "license": "MIT",
   "private": true,
-  "files": [
-    "ava.unit.config.js"
-  ],
   "scripts": {
     "clean": "run-s -n clean:run clean:post",
     "clean:run": "run-p -n clean:run:*",
@@ -14,9 +10,9 @@
     "clean:post:node_modules": "rm -rf node_modules"
   },
   "devDependencies": {
+    "@types/node": "^17.0.21",
     "@foobartory-dev-dependency/devtools": "*",
-    "@foobartory-dev-dependency/typescript": "*",
-    "ava": "^4.0.1",
-    "c8": "^7.11.0"
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
   }
 }

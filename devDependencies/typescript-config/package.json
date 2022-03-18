@@ -1,0 +1,10 @@
+{
+  "name": "@foobartory-dev-dependency/typescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "base.json",
+    "cli.json",
+    "library.json"
+  ]
+}

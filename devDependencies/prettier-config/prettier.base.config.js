@@ -7,5 +7,5 @@ module.exports = {
     importOrderSeparation: true,
     importOrderSortSpecifiers: true,
     importOrderParserPlugins: ["typescript", "decorators-legacy"],
-    importOrder: ["^@foobartory-dependency/(.*)$", "^@foobartory-app/(.*)$", "^[./]"],
+    importOrder: ["^shared/(.*)$", "^module/(.*)$", "^[./]"],
 };

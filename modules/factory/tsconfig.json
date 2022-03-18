@@ -1,5 +1,5 @@
 {
-  "extends": "@foobartory-dev-dependency/tsconfig/library.json",
+  "extends": "@foobartory-dev-dependency/typescript-config/library.json",
   "include": ["src"],
   "exclude": ["dist", "node_modules"],
   "compilerOptions": {

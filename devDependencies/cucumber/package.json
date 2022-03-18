@@ -2,6 +2,7 @@
   "name": "@foobartory-dev-dependency/cucumber",
   "version": "0.0.0",
   "license": "MIT",
+  "private": true,
   "files": [
     "cucumber.js"
   ],
@@ -16,15 +17,13 @@
     "clean:post:node_modules": "rm -rf node_modules"
   },
   "devDependencies": {
-    "@cucumber/cucumber": "^7.3.2",
-    "@cucumber/pretty-formatter": "^1.0.0-alpha.1",
     "@types/chai": "^4.3.0",
+    "@cucumber/cucumber": "^7.3.2",
+    "@foobartory-dev-dependency/devtools": "*",
+    "@foobartory-dev-dependency/typescript": "*",
+    "@cucumber/pretty-formatter": "^1.0.0-alpha.1",
     "chai": "^4.3.6",
     "cucumber-html-reporter": "^5.5.0",
-    "cucumber-tsflow": "^4.0.0-preview.7",
-    "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2",
-    "ts-node": "^10.5.0",
-    "tsconfig-paths": "^3.14.0"
+    "cucumber-tsflow": "^4.0.0-preview.7"
   }
 }

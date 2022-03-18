@@ -15,7 +15,7 @@ module.exports = {
     "import/resolver": {
       ...baseConfig.settings["import/resolver"],
       typescript: {
-        project: ["apps/*/tsconfig.json", "dependencies/*/tsconfig.json"],
+        project: ["apps/*/tsconfig.json", "modules/*/tsconfig.json", "dependencies/*/tsconfig.json"],
       },
     },
   },

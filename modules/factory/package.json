@@ -1,5 +1,5 @@
 {
-  "name": "@foobartory-dependency/module-factory",
+  "name": "@foobartory-module/factory",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
@@ -41,7 +41,6 @@
     "@foobartory-dev-dependency/eslint": "*",
     "@foobartory-dev-dependency/cucumber": "*",
     "@foobartory-dev-dependency/devtools": "*",
-    "@foobartory-dev-dependency/tsconfig": "*",
-    "typescript": "^4.5.5"
+    "@foobartory-dev-dependency/eslint-config": "*"
   }
 }
