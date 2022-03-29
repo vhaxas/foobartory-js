@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "uuid": "^8.3.2",
-    "@foobartory-dev-dependency/typescript": "*"
+    "@foobartory-dependency/typescript": "*"
   },
   "devDependencies": {
     "@foobartory-dev-dependency/eslint": "*",
